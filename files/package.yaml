@@ -1,8 +1,11 @@
 MyApplication:
-  description: "This is my first test application"
+  description: This is my first test application
   version: 1.0
-  registry: "https://registry.mpm.org/"
+  registry: https://registry.mpm.org/
   dependencies:
     - GUI:
         name: mgui
         version: 0.1-alpha
+    - DBG:
+        name: mdebug
+        version: 1.0
