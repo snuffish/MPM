@@ -1,0 +1,13 @@
+%DEV; Dev-routine
+	Q
+
+RERUN(EXEC)
+	N (EXEC)
+	S LABEL=$P(EXEC,"^",1),LABEL=$G(LABEL,"")
+	S ROUTINE=$P(EXEC,"^",2),ROUTINE=$G(ROUTINE,"")
+
+	IF ROUTINE="" W "Specified ROUTINE is Missing!" Q
+
+	FOR  K ZGOTO ZLINK ROUTINE D @LABEL^@ROUTINE hang 0.5
+
+	Q

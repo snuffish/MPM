@@ -1,0 +1,25 @@
+Playground
+	N
+
+	S *YAML("DEPENDENCIES")=DEPENDENCIES
+
+	S OBJ="GUI"
+	S OBJ("NAME")="mgui"
+	S OBJ("VERSION")="0.1-alpha"
+
+	NEW (YAML,OBJ)
+
+	S DEPENDENCIES=OBJ
+
+	;S OBJ="DBG"
+	;S OBJ("NAME")="mdebug"
+	;S OBJ("VERSION")="1.0"
+
+
+
+	W YAML("DEPENDENCIES")
+
+	W !!!
+
+
+	Q

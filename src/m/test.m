@@ -6,6 +6,7 @@ Test
 	S *FILE=$$READFILE^%FS("files/package.yaml")
 
 	S INDENTCHAR=32
+	S BLOCKLEVEL=0
 
 	S APPNAME=""
 
@@ -16,7 +17,8 @@ Test
 	.IF $C($E(LINE,1))'=INDENTCHAR  DO
 	..S:(APPNAME="") APPNAME=$TR(LINE,":")
 	.;;
-	.IF $$ISNEWBLOCK(LINE)  DO
+	.;; Check after a new inner-block
+	.IF $$ISNEWBLOCK(LINE) S BLOCKLEVEL=$I(BLOCKLEVEL)  DO
 	..W "NEW BLOCK => "_$TR(LINE,$C(INDENTCHAR)),!
 
 	W APPNAME
@@ -33,9 +35,6 @@ ISNEWBLOCK(LINE)
 
 ;.IF $E($RE(VALUE))=":" W "END OF BLOCK:"_VALUE,!
 ;.W "["_LINE_"] "_VALUE,!
-
-
-
 
 
 
