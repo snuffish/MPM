@@ -2,6 +2,7 @@ MyApplication:
   description: "This is my first test application"
   version: 1.0
   registry: "https://registry.mpm.org/"
-  packages:
+  dependencies:
     - GUI:
+        name: mgui
         version: 0.1-alpha
