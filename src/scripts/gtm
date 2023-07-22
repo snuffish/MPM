@@ -1,0 +1,5 @@
+#!/bin/bash
+
+CONTAINER_NAME="YDB-MPM"
+
+docker exec -it $CONTAINER_NAME gtm

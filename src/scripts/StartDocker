@@ -1,0 +1,20 @@
+#!/bin/bash
+
+ROOT_DIR=$(eval "cd ../.. && pwd")
+
+CONTAINER_NAME="YDB-MPM"
+DATA_DIR="${ROOT_DIR}/.data/YottaDB"
+ROUTINE_DIR="${ROOT_DIR}/src/m"
+FILES_DIR="${ROOT_DIR}/files"
+
+docker stop $CONTAINER_NAME
+
+docker run \
+	--rm \
+	--name="$CONTAINER_NAME" \
+	-v "$DATA_DIR":/data \
+	-v "$ROUTINE_DIR":/data/r \
+	-v "$FILES_DIR":/data/files \
+	-itd yottadb/yottadb
+
+echo "Docker container '${CONTAINER_NAME}' has started!"
