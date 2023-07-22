@@ -1,25 +1,30 @@
 Playground
 	N
 
+	VIEW "NOUNDEF"
+
 	S *YAML("DEPENDENCIES")=DEPENDENCIES
 
 	S OBJ="GUI"
 	S OBJ("NAME")="mgui"
 	S OBJ("VERSION")="0.1-alpha"
 
-	NEW (YAML,OBJ)
-
 	S DEPENDENCIES=OBJ
+
+	SET *P=YAML("DEPENDENCIES")
+
+	W P("NAME")
 
 	;S OBJ="DBG"
 	;S OBJ("NAME")="mdebug"
 	;S OBJ("VERSION")="1.0"
 
 
+	VIEW "UNDEF"
 
-	W YAML("DEPENDENCIES")
 
 	W !!!
 
 
 	Q
+
