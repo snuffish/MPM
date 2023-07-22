@@ -1,15 +1,15 @@
 ## My package.yml file for my Application
 
-MyApplication:
-  description: This is my first test application
-  version: 1.0
-  author: snuffish
-  tags: [tag1,tag2,tag3]
-  registry: https://registry.mpm.org/
-  dependencies:
-    - GUI:
-        name: mgui
-        version: 0.1-alpha
-    - DBG:
-        name: mdebug
-        version: 1.0
+name: MyApplication
+description: This is my first test application
+version: 1.0
+author: snuffish
+tags: [ tag1,tag2,tag3 ]
+registry: https://registry.mpm.org/
+dependencies:
+  - GUI:
+      name: mgui
+      version: 0.1-alpha
+  - DBG:
+      name: mdebug
+      version: 1.0

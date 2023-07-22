@@ -1,0 +1,16 @@
+#!/bin/bash
+
+CONTAINER_NAME="YDB-MPM"
+ROUTINE=$1
+
+echo "ROUTINE=>$ROUTINE"
+
+if [[ "$ROUTINE" == "" ]]
+then
+  	echo "Missing ROUTINE argument: ./zlink <ROUTINE>"
+  	exit 1
+fi
+
+ZLINK_CMD="gtm -run ^%XCMD 'ZLINK \"${ROUTINE}\"'"
+
+docker exec -it $CONTAINER_NAME bash -c "$ZLINK_CMD"

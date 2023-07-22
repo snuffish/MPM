@@ -23,6 +23,8 @@ Test
 
 	W APPNAME
 
+	W "HEEEEEJSAN"
+
 	Q
 
 BLOCK()
@@ -34,9 +36,10 @@ ISNEWBLOCK(LINE)
 
 
 ;.IF $E($RE(VALUE))=":" W "END OF BLOCK:"_VALUE,!
-;.W "["_LINE_"] "_VALUE,!
-
-
-
+;.W "["_LINE_"] "_VALUE,!4444x
+;DSDSdddsa1321
 
 CLEAR U $P:(X=0:Y=0:CLEAR) Q
+
+
+
