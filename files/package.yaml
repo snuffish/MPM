@@ -3,6 +3,7 @@
 MyApplication:
   description: This is my first test application
   version: 1.0
+  author: snuffish
   tags: [tag1,tag2,tag3]
   registry: https://registry.mpm.org/
   dependencies:
