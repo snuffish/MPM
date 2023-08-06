@@ -5,31 +5,29 @@ Test
 
 	S *FILE=$$READFILE^%FS("files/package.yaml")
 
-	S INDENTCHAR=32
 	S BLOCKLEVEL=0
-
-	S APPNAME=""
 
 	S ROW=$NA(FILE) FOR  S ROW=$Q(@ROW) Q:(ROW="")  DO
 	.S NR=$QS(ROW,1)
 	.S LINE=@ROW
-	.;; Get the AppName and the Start-point in the YAML file.
-	.IF $C($E(LINE,1))'=INDENTCHAR  DO
-	..S:(APPNAME="") APPNAME=$TR(LINE,":")
-	.;;
-	.;; Check after a new inner-block
-	.IF $$ISNEWBLOCK(LINE) S BLOCKLEVEL=$I(BLOCKLEVEL)  DO
-	..W "NEW BLOCK => "_$TR(LINE,$C(INDENTCHAR)),!
+	.S KEY=$P(LINE,":",1)
+	.S VALUE=$$L^%TRIM($P(LINE,":",2))
+	.IF $A(VALUE)'=-1 S YAML(KEY)=VALUE
+	.ELSE  DO
+	..W "HEJ",!
 
-	W APPNAME
+	ZWR YAML
 
-	W "HEEEEEJSAN"
+	;W $$L^%TRIM(" HEJSAN")
 
 	Q
 
-BLOCK()
+BLOCKLEVEL(ROW)
+	N (ROW)
+	S INDENT=$CHAR(32,32),COUNT=0
+	S FIND="" FOR  S FIND=$FIND(ROW,INDENT,FIND) Q:(FIND=0)  S COUNT=$I(COUNT)
+	Q COUNT
 
-	Q
 
 ISNEWBLOCK(LINE)
 	Q $A($E(LINE,1))=32
